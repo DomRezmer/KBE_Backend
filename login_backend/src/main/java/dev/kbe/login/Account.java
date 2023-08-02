@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//TESTING STUFF DELETE LATER
 @Document(collection = "accounts")
 @Data
 @AllArgsConstructor
