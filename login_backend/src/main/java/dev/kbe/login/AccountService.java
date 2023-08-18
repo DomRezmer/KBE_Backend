@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
-    @Autowired
-    private MongoTemplate mongoTemplate;
 
     public List<Account> allAccounts() {
         return accountRepository.findAll();
@@ -33,5 +31,13 @@ public class AccountService {
         accountRepository.insert(account);
 
         return account;
+    }
+
+    public boolean checkCredentials(String email, String password) {
+        Optional<Account> account = accountRepository.findByEmail(email);
+        if (account.isPresent()) {
+            return account.get().getPassword().equals(password);
+        }
+        return false;
     }
 }
