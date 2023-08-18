@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
-    @Autowired
-    private MongoTemplate mongoTemplate;
 
     public List<Account> allAccounts() {
         return accountRepository.findAll();
