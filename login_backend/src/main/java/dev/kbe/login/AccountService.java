@@ -15,19 +15,22 @@ public class AccountService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public List<Account> allAccounts(){
+    public List<Account> allAccounts() {
         return accountRepository.findAll();
     }
 
-    public Optional<Account> singleAccount(ObjectId id){
+    public Optional<Account> singleAccount(ObjectId id) {
         return accountRepository.findById(id);
     }
 
-    public Account createAccount(String email, String name, String dateofBirth, String password){
+    public Account createAccount(String email, String name, String dateofBirth, String password) {
+        Optional<Account> accountExists = accountRepository.findByEmail(email);
+        if (accountExists.isPresent()) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+
         Account account = new Account(email, name, dateofBirth, password);
         accountRepository.insert(account);
-
-        mongoTemplate.insert(account);
 
         return account;
     }
