@@ -32,4 +32,12 @@ public class AccountService {
 
         return account;
     }
+
+    public boolean checkCredentials(String email, String password) {
+        Optional<Account> account = accountRepository.findByEmail(email);
+        if (account.isPresent()) {
+            return account.get().getPassword().equals(password);
+        }
+        return false;
+    }
 }

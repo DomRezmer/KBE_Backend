@@ -38,4 +38,12 @@ public class AccountController {
         return new ResponseEntity<Account>(accountService.createAccount(payload.get("email"), payload.get("name"),
                 payload.get("dateofBirth"), payload.get("password")), HttpStatus.CREATED);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody Map<String, String> payload) {
+        if (accountService.checkCredentials(payload.get("email"), payload.get("password"))) {
+            return new ResponseEntity<String>("Login successful", HttpStatus.OK);
+        }
+        return new ResponseEntity<String>("Login failed", HttpStatus.UNAUTHORIZED);
+    }
 }
