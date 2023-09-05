@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "64a098d5dd846c0b37c04cf1"
+  },
+  "email": "test@gmail.com",
+  "name": "Max Mustermann",
+  "dateOfBirth": "1997-09-19",
+  "password": "password1234"
+},
+{
+  "_id": {
+    "$oid": "64ad4d28bbd4df110300b776"
+  },
+  "email": "testing@thisbs.com",
+  "name": "FUCK SPRING",
+  "dateofBirth": "Birthday?",
+  "password": "test123456",
+  "_class": "dev.test.KBE_TEST.Account"
+}]
