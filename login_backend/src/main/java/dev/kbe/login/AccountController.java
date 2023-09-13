@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "*" })
-@RequestMapping("/api/v1/accounts")
+@RequestMapping("/api/v1/accounts") // v1 löschen und im Frontend übernehmen
 public class AccountController {
     @Autowired
     private AccountService accountService;
@@ -30,7 +30,7 @@ public class AccountController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Account>> getSingleAccount(@PathVariable ObjectId id) {
-        return new ResponseEntity<Optional<Account>>(accountService.singleAccount(id), HttpStatus.OK);
+        return new ResponseEntity<Optional<Account>>(accountService.getSingleAccount(id), HttpStatus.OK);
     }
 
     @PostMapping

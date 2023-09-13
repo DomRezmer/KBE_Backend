@@ -17,7 +17,7 @@ public class AccountService {
         return accountRepository.findAll();
     }
 
-    public Optional<Account> singleAccount(ObjectId id) {
+    public Optional<Account> getSingleAccount(ObjectId id) {
         return accountRepository.findById(id);
     }
 
