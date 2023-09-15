@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "*" })
-@RequestMapping("/api/v1/accounts") // v1 löschen und im Frontend übernehmen
+@RequestMapping("/api/accounts")
 public class AccountController {
     @Autowired
     private AccountService accountService;
